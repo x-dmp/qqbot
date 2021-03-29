@@ -6,7 +6,8 @@ from io import BytesIO
 
 def get_pic(apikey: str, r18=0) -> tuple:
     # url = opt.web_url + '?' + 'apikey=' + apikey + '&r18=' + str(r18) + '&size1200=true'
-    url = opt.web_url + '?r18=' + str(r18) + '&size1200=true'
+    url = opt.web_url + '?r18=' + str(r18) + '&size1200=true' + '&apikey=' + apikey
+    # url = opt.web_url + '?r18=' + str(r18) + '&size1200=true'
     response = requests.get(url)
     data = response.json()
     quota = data['quota']
@@ -17,6 +18,3 @@ def get_pic(apikey: str, r18=0) -> tuple:
     loc = opt.cache_dir + img_name
     img_cache.save(loc, quality=100)
     return loc, quota
-
-
-print(get_pic('test'))
