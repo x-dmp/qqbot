@@ -5,6 +5,7 @@ import random
 # sys.path.append('/usr/local/qbot/bot/')
 import src.main.config as opt
 from io import BytesIO
+import os
 
 
 def get_pic(apikey: str, r18=0) -> tuple:
@@ -13,11 +14,12 @@ def get_pic(apikey: str, r18=0) -> tuple:
     data = response.json()
     quota = data['quota']
     pic_url = data['data'][0]['url']
-    img = requests.get(pic_url)
     img_name = pic_url.split('/')[-1]
-    img_cache = Image.open(BytesIO(img.content))
     loc = opt.cache_dir + img_name
-    img_cache.save(loc, quality=80)
+    if not os.path.exists(loc):
+        img = requests.get(pic_url)
+        img_cache = Image.open(BytesIO(img.content))
+        img_cache.save(loc, quality=80)
     return loc, quota
 
 
