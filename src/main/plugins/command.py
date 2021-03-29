@@ -1,33 +1,18 @@
-# -*- coding: utf-8 -*-
-
 from nonebot import on_command, CommandSession
 from nonebot import on_natural_language, NLPSession, IntentCommand
+from nonebot.message import MessageSegment
+from src.main.utils.getPic import get_pic
 
 
-class command:
-    command_name = 'None'
-    command_aliases = {}
-    has_args = False
-    error_msg = ''
+@on_command('weather', aliases=('天气', '天气预报', '查天气'))
+async def weather(session: CommandSession):
+    # city = session.get('city', prompt='你想查询哪个城市的天气呢？')
+    src, quoto = get_pic('')
+    print(MessageSegment.image(src))
+    print(quoto)
+    await session.send(MessageSegment.image(src))
 
-    def __init__(self, name, aliases, fun, has_args=False, error_msg='None params'):
-        self.command_name = name
-        self.command_aliases = aliases
-        self.has_args = has_args
-        self.error_msg = error_msg
-        self.fun = fun
 
-    @on_command(command_name, aliases=command_aliases)
-    async def send_command(self, session: CommandSession, fun):
-        await session.send(fun(session))
-
-    @send_command.args_parser
-    async def _(self, session: CommandSession):
-        str = session.current_arg_text.strip()
-        if session.is_first_run:
-            if self.has_args and str:
-                session.state['args'] = str
-                return
-            else:
-                session.pause(self.error_msg)
-
+@on_natural_language(keywords={'天气'}, only_to_me=False)
+async def _(session: NLPSession):
+    return IntentCommand(90.0, 'weather')
