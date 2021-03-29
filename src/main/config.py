@@ -10,6 +10,7 @@ SUPERUSERS = {2025679397}
 
 # 命令响应符
 COMMAND_START = {'$'}
+NICKNAME = {'demo'}
 
 # 网站名
 web_url = 'https://api.lolicon.app/setu/'
