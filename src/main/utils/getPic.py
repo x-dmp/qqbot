@@ -21,6 +21,7 @@ def get_pic(r18=0, keyword='') -> tuple:
         img = requests.get(pic_url)
         img_cache = Image.open(BytesIO(img.content))
         img_cache.save(loc, quality=80)
+        print("本地无图片，开始下载")
     return loc, quota
 
 
