@@ -8,8 +8,8 @@ from io import BytesIO
 import os
 
 
-def get_pic(apikey: str, r18=0) -> tuple:
-    url = opt.web_url + '?r18=' + str(r18) + '&size1200=true' + '&apikey=' + apikey
+def get_pic(apikey: str, r18=0, keyword='') -> tuple:
+    url = opt.web_url + '?r18=' + str(r18) + '&size1200=true' + '&apikey=' + apikey + '&keyword=' + keyword
     response = requests.get(url)
     data = response.json()
     quota = data['quota']
@@ -23,7 +23,7 @@ def get_pic(apikey: str, r18=0) -> tuple:
     return loc, quota
 
 
-def get_pic() -> str:
+def get_pic1() -> str:
     location = random.randint(1, 1000)
     url = opt.local_dir + 'photo_' + str(location) +'.jpg'
     print(url)

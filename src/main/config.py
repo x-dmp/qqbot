@@ -16,5 +16,5 @@ NICKNAME = {'demo'}
 web_url = 'https://api.lolicon.app/setu/'
 
 # 缓存目录
-cache_dir = 'C:/Users/zwc/Desktop/ys/tem/'
-local_dir = 'C:/Users/zwc/Downloads/aml/'
+cache_dir = 'C:/temp/qqbot_pic/'
+local_dir = 'C:/temp/qqbot_pic/'

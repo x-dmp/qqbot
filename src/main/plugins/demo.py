@@ -8,11 +8,11 @@ from src.main.utils.getPic import get_pic
 
 @on_command('setu', aliases=('涩图', '色图'))
 async def setu(session: CommandSession):
-    print('执行setu')
-    src = get_pic()
+    print('执行setu'+session.current_arg_text)
+    src,_ = get_pic('95462828605c9b29d66cb3', r18=0, keyword=session.current_arg_text)
     await session.send(MessageSegment.image(src))
 
 
-@on_natural_language(keywords={'涩图'}, only_to_me=True)
-async def _(session: NLPSession):
-    return IntentCommand(90.0, 'setu')
+# @on_natural_language(keywords={'涩图'}, only_to_me=True)
+# async def _(session: NLPSession):
+#     return IntentCommand(90.0, 'setu')
