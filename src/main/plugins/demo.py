@@ -9,7 +9,7 @@ from src.main.utils.getPic import get_pic
 @on_command('setu', aliases=('涩图', '色图'))
 async def setu(session: CommandSession):
     print('执行setu'+session.current_arg_text)
-    src,_ = get_pic('95462828605c9b29d66cb3', r18=0, keyword=session.current_arg_text)
+    src, _ = get_pic(r18=0, keyword=session.current_arg_text)
     await session.send(MessageSegment.image(src))
 
 
