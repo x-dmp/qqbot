@@ -16,15 +16,15 @@ def get_pic(r18=0, keyword='') -> tuple:
     quota = data['quota']
     code = data['code']
     if code == 429:
-        return '429', quota
+        return 429, '', quota
     elif code == -1:
-        return '-1', quota
+        return -1, '', quota
     elif code == 401:
-        return '401', quota
+        return 401, '', quota
     elif code == 404:
-        return '404', quota
+        return 404, '', quota
     elif code == 403:
-        return '403', quota
+        return 403, '', quota
     pic_url = data['data'][0]['url']
     img_name = pic_url.split('/')[-1]
     loc = opt['cache_dir'] + img_name
@@ -34,7 +34,7 @@ def get_pic(r18=0, keyword='') -> tuple:
         img_cache = Image.open(BytesIO(img.content))
         img_cache.save(loc, quality=80)
         print("下载完成")
-    return loc, quota
+    return 0, loc, quota
 
 
 def get_pic_from_local() -> str:
