@@ -6,7 +6,7 @@ PORT = 8080
 # 监听IP
 HOST = '127.0.0.1'
 # 超级用户
-SUPERUSERS = {2025679397}
+SUPERUSERS = {}
 
 # 命令响应符
 COMMAND_START = {'$', '/', '*', ''}
