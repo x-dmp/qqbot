@@ -129,4 +129,5 @@ dmypy.json
 .pyre/
 
 .idea/
-main/config
+src/main/config
+src/main/config.py
