@@ -9,5 +9,5 @@ HOST = '127.0.0.1'
 SUPERUSERS = {2025679397}
 
 # 命令响应符
-COMMAND_START = {'$'}
-NICKNAME = {'demo'}
+COMMAND_START = {'$', '/', '*', ''}
+NICKNAME = {'demo', '王小美', '老婆'}

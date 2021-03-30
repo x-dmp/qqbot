@@ -1,7 +1,7 @@
 {
-    "local_pic_num" : 1000,
+    "local_pic_num" : 10000,
     "apikey" : "95462828605c9b29d66cb3" ,
-    "cache_dir" : "C:/temp/qqbot_pic/",
-    "local_dir" : "C:/temp/qqbot_pic/",
+    "cache_dir" : "C:/Users/zwc/Desktop/ys/tmp/",
+    "local_dir" : "C:/Users/zwc/Downloads/aml/aml/",
     "web_url" : "https://api.lolicon.app/setu/"
 }

@@ -14,6 +14,8 @@ def get_pic(r18=0, keyword='') -> tuple:
     response = requests.get(url)
     data = response.json()
     quota = data['quota']
+    if quota == 0:
+        raise Exception
     pic_url = data['data'][0]['url']
     img_name = pic_url.split('/')[-1]
     loc = opt['cache_dir'] + img_name
