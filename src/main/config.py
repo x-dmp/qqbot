@@ -10,4 +10,4 @@ SUPERUSERS = {}
 
 # 命令响应符
 COMMAND_START = {'$', '/', '*', ''}
-NICKNAME = {'demo', '王小美', '老婆'}
+NICKNAME = {'demo', '@GHS'}
