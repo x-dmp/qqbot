@@ -1,7 +1,23 @@
-import os
-import time
+from src.spyder import tags, pic_from_pivix
+import src.main.pysql.pysql_test as pysql
 
 
-s = 'aaaa cascsc干饭干饭！干饭啦兄弟们   n饿了么和美团组队撒币了 '
-print(type(s))
-print(s.__contains__('aaaa'))
+def save(id, src):
+    pic_from_pivix.get_pic(id, src)
+    return tags.get_tags(id)
+
+
+def get_tag(tag_list):
+    tag_re = ''
+    for t in tag_list:
+        tag_re = tag_re + t + '_'
+    return tag_re
+
+
+def store_pic_by_id(uid, local_dir, d):
+
+    tag_list = save(uid, local_dir)
+    if tag_list is None:
+        return
+    tag_re = get_tag(tag_list)
+    pysql.insert_pic(uid, d, tag_re)
