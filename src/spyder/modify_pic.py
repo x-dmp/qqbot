@@ -2,7 +2,7 @@ import os
 from PIL import Image
 import random
 
-src = 'C:/Users/zwc/Desktop/ys/tmp/'
+src = 'C:/Users/zwc/Desktop/pic2/'
 # src = 'C:/Users/zwc/Downloads/aml/aml/'
 location = 'C:/Users/zwc/Desktop/res/'
 

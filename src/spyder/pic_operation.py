@@ -1,5 +1,6 @@
 from src.spyder import tags, pic_from_pivix
 import src.main.pysql.pysql_test as pysql
+import os
 
 
 def save(id, src):
@@ -14,8 +15,16 @@ def get_tag(tag_list):
     return tag_re
 
 
-def store_pic_by_id(uid, local_dir, d):
+def get_local_dir(id:str, local_dir:str) -> str:
+    d = ''
+    for j in id:
+        d = d + j + '/'
+        if not os.path.exists(local_dir + d):
+            os.mkdir(local_dir + d)
+    return local_dir + d
 
+
+def store_pic_by_id(uid, local_dir, d):
     tag_list = save(uid, local_dir)
     if tag_list is None:
         return

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from nonebot.default_config import *
 
 # 监听端口
@@ -10,4 +9,4 @@ SUPERUSERS = {}
 
 # 命令响应符
 COMMAND_START = {'$', '/', '*', ''}
-NICKNAME = {'demo', '@GHS'}
+NICKNAME = {'demo', '王小美', '老婆'}

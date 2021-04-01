@@ -1,5 +1,5 @@
 import os
-import src.spyder.test as T
+import src.spyder.pic_operation as T
 import time
 
 local_dir = 'C:/Users/zwc/Desktop/ys/tmp/'
