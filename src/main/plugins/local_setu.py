@@ -4,7 +4,8 @@ from nonebot import on_natural_language, NLPSession, IntentCommand
 import sys
 # sys.path.append('/usr/local/qbot/bot/')
 from src.main.utils.getPic import get_pic, get_pic_from_local, get_pic_from_sql
-
+from src.main.utils.random_pic import get_random_src
+import src.main.utils.option as option
 
 def isnumber(s):
     try:
@@ -14,13 +15,13 @@ def isnumber(s):
         pass
 
 
-@on_command('setu_local', aliases=('图'))
+@on_command('setu_local', aliases=('图', 't'))
 async def setu(session: CommandSession):
     print('执行setu' + session.current_arg_text)
     res = ''
     code = 0
     if session.current_arg_text == '':
-        src = get_pic_from_local()
+        src = get_random_src(option['sql_dir'])
         res = '恭喜你获得老婆一只！'
         await session.send(MessageSegment.image(src), at_sender=True)
         await session.send(res, at_sender=True)

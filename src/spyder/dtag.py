@@ -1,8 +1,9 @@
 import os
 import src.spyder.pic_operation as T
 import time
+from PIL import Image
 
-local_dir = 'C:/Users/zwc/Desktop/ys/tmp/'
+local_dir = 'C:/Users/zwc/Desktop/piv/'
 store_dir = 'C:/Users/zwc/Desktop/ys/test/'
 lst = os.listdir(local_dir)
 for ii in lst:
@@ -17,5 +18,8 @@ for ii in lst:
     if not os.path.exists(dr):
         os.mkdir(dr)
     T.store_pic_by_id(s, dr, d)
-    time.sleep(2)
+    img = Image.open(local_dir + ii)
+    img.save(store_dir + d + s + '.png')
+    print(store_dir + d + s + '.png')
+    time.sleep(3)
 

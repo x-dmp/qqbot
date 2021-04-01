@@ -22,7 +22,9 @@ def get_tags(id:str) -> list:
         for ii in data:
             try:
                 print(ii['translation']['en'])
+                print(ii['tag'])
                 res.append(ii['translation']['en'])
+                res.append(ii['tag'])
             except Exception:
                 pass
         return res

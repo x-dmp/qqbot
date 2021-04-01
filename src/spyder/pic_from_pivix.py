@@ -1,3 +1,8 @@
+from selenium import webdriver
+import time
+import pyautogui as p
+import os
+import threading
 import requests
 
 header = {
@@ -12,3 +17,28 @@ def get_pic(id: str, file_path: str):
     with open(file_path + id + '.png', 'wb+') as f:
         f.write(r.content)
 
+# browser = webdriver.Chrome()
+# browser.get('https://www.pixiv.net/')
+# input()
+# browser.set_page_load_timeout(10)
+# local_dir = 'C:/Users/zwc/Desktop/ys/tmp/'
+# store_dir = 'C:/Users/zwc/Desktop/ys/test/'
+# lst = os.listdir(local_dir)
+# for ii in lst:
+#     s = ii.split('_')[0]
+#     d = ''
+#     dr = store_dir + d
+#     url = 'https://www.pixiv.net/artworks/' + s
+#     browser.maximize_window()
+#     try:
+#         browser.get(url)
+#     except Exception:
+#         pass
+#     screenWidth, screenHeight = p.size()
+#     p.moveTo(screenWidth / 2, screenHeight / 2)
+#     p.rightClick()
+#     p.moveRel(xOffset=20, yOffset=175)
+#     p.click()
+#     p.moveRel(xOffset=-220, yOffset=-200)
+#     time.sleep(2)
+#     p.press('enter')

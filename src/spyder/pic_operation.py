@@ -1,11 +1,6 @@
-from src.spyder import tags, pic_from_pivix
+from src.spyder import tags
 import src.main.pysql.pysql_test as pysql
 import os
-
-
-def save(id, src):
-    pic_from_pivix.get_pic(id, src)
-    return tags.get_tags(id)
 
 
 def get_tag(tag_list):
@@ -15,7 +10,7 @@ def get_tag(tag_list):
     return tag_re
 
 
-def get_local_dir(id:str, local_dir:str) -> str:
+def get_local_dir(id: str, local_dir: str) -> str:
     d = ''
     for j in id:
         d = d + j + '/'
@@ -25,7 +20,7 @@ def get_local_dir(id:str, local_dir:str) -> str:
 
 
 def store_pic_by_id(uid, local_dir, d):
-    tag_list = save(uid, local_dir)
+    tag_list = tags.get_tags(uid)
     if tag_list is None:
         return
     tag_re = get_tag(tag_list)
