@@ -1,4 +1,6 @@
 import os
+import sys
+sys.path.append('/usr/local/qbot/bot/')
 import src.spyder.pic_operation as T
 import time
 from PIL import Image

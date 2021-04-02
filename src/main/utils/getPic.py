@@ -9,7 +9,6 @@ import os
 import src.main.pysql.pysql_test as pysql
 import src.spyder.pic_operation as po
 
-
 def get_pic(r18=0, keyword='') -> tuple:
     opt = option.get_option()
     url = opt['web_url'] + '?r18=' + str(r18) + '&size1200=true' + '&apikey=' + opt['apikey'] + '&keyword=' + keyword
@@ -38,7 +37,6 @@ def get_pic(r18=0, keyword='') -> tuple:
         print("下载完成")
     return 0, loc, quota
 
-
 def get_pic_from_sql(tag: str) -> str:
     lst = pysql.find_ids_by_tag(tag)
     n = random.randint(0, lst.__len__())
@@ -47,9 +45,8 @@ def get_pic_from_sql(tag: str) -> str:
     print(src)
     return src
 
-
 def get_pic_from_local() -> str:
     opt = option.get_option()
-    location = random.randint(1, opt['local_pic_num'])
-    url = opt['local_dir']  + str(location) + '.png'
+    location = random.randint(0, opt['local_pic_num'])
+    url = opt['local_dir'] + str(location) +'.png'
     return url

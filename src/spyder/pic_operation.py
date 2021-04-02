@@ -1,3 +1,5 @@
+import sys
+# sys.path.append('/usr/local/qbot/bot/')
 from src.spyder import tags
 import src.main.pysql.pysql_test as pysql
 import os

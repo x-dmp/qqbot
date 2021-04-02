@@ -5,7 +5,6 @@ import sys
 # sys.path.append('/usr/local/qbot/bot/')
 from src.main.utils.getPic import get_pic, get_pic_from_local
 
-
 def isnumber(s):
     try:
         int(s)
@@ -13,10 +12,9 @@ def isnumber(s):
     except Exception:
         pass
 
-
 @on_command('setu', aliases=('涩图', '色图', '来一张涩图', '来一张色图', '来点涩图', '来点色图'))
 async def setu(session: CommandSession):
-    print('执行setu' + session.current_arg_text)
+    print('执行setu'+session.current_arg_text)
     res = ''
     code = 0
     if session.current_arg_text == '':
@@ -28,15 +26,18 @@ async def setu(session: CommandSession):
         s = session.current_arg_text
         if isnumber(s):
             num = int(session.current_arg_text)
+            if num >= 10:
+                await session.send('做人不能太贪心哦！', at_sender=True)
+                num = 1
             for i in range(num):
                 src = get_pic_from_local()
                 await session.send(MessageSegment.image(src), at_sender=True)
-            res = '共计获得老婆' + str(num) + '只！'
+            res = '共计获得老婆' + str(num) +'只！'
             await session.send(res, at_sender=True)
         else:
             try:
                 code, src, quota = get_pic(r18=0, keyword=session.current_arg_text)
-                if code == 0:
+                if code==0:
                     res = '恭喜你获得' + session.current_arg_text.strip() + '老婆一只！'
                 else:
                     src = get_pic_from_local()
